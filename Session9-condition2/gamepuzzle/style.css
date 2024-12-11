@@ -1,0 +1,30 @@
+/* body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    margin: 8px;
+    flex-direction: column;
+}
+
+#puzzle-container {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-gap: 10px;
+}
+
+#puzzle-container div {
+    width: 100px;
+    height: 100px;
+    background-size: cover;
+    cursor: pointer;
+    border: 1px solid #ccc;
+}
+
+#message {
+    margin-top: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    color: green;
+} */
