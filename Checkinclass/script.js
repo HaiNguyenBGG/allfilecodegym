@@ -12,6 +12,8 @@
 //     i++;
 // }
 
+
+
 // let value = null;
 // do {
 //     value = prompt("Nhập số:");
@@ -29,6 +31,8 @@
 // sout = sout + "</table>";
 // document.write(sout);
 
+
+
 let sout, i, j;
 sout = "<table border='1' width='300' cellspacing='0' cellpadding='3'>";
 i = j = 1;
@@ -44,6 +48,8 @@ while (i <= 10) {
 }
 sout = sout + "</table>";
 document.write(sout);
+
+
 
 // let sout;
 // sout = "<table border='1' width='300' cellspacing='0' cellpadding='3'>"
