@@ -1,0 +1,7 @@
+body, html {
+    height: 100%; /* Đảm bảo body và html có chiều cao 100% */
+    margin: 0; /* Xóa margin mặc định */
+    display: flex; /* Sử dụng flexbox */
+    justify-content: center; /* Căn giữa theo chiều ngang */
+    align-items: center; /* Căn giữa theo chiều dọc */
+}
