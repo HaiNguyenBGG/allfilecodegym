@@ -3,7 +3,6 @@ let n = +prompt("Nhập số lượng cần in ra:");
 let n1 = +prompt("Nhập số lượng số chia hết cho 5 cần in ra:");
 let count = 0;
 console.log(fib0); //In ra số đầu tiên.
-debugger;
 if (n1 > n) {
     console.log(`Số lượng trong danh sách ${n} số không đủ`);
 } else {

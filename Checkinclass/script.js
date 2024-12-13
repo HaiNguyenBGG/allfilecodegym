@@ -33,21 +33,21 @@
 
 
 
-let sout, i, j;
-sout = "<table border='1' width='300' cellspacing='0' cellpadding='3'>";
-i = j = 1;
-while (i <= 10) {
-    sout = sout + "<tr>";
-    while (j <= 10) {
-        sout = sout + "<td>" + i * j + "</td>";
-        j++;
-    }
-    sout = sout + "</tr>";
-    j = 1;
-    i++;
-}
-sout = sout + "</table>";
-document.write(sout);
+// let sout, i, j;
+// sout = "<table border='1' width='300' cellspacing='0' cellpadding='3'>";
+// i = j = 1;
+// while (i <= 10) {
+//     sout = sout + "<tr>";
+//     while (j <= 10) {
+//         sout = sout + "<td>" + i * j + "</td>";
+//         j++;
+//     }
+//     sout = sout + "</tr>";
+//     j = 1;
+//     i++;
+// }
+// sout = sout + "</table>";
+// document.write(sout);
 
 
 
@@ -62,3 +62,29 @@ document.write(sout);
 // }
 // sout = sout + "</table>";
 // document.write(sout);
+
+// //Bài 1: Chẵn lẻ
+// let numbers = +prompt("Nhập số cần kiểm tra:");
+// if (numbers % 2 === 0) {
+//     alert("Là số chẵn.");
+// } else {
+//     alert("Là số lẻ.");
+// }
+
+// // Bài 2: Bội số của 3
+// for (let i = 1; i <= 50; i++) {
+//     if (i % 3 === 0) {
+//         console.log(i);
+//     }
+// }
+
+// // Bài 3:In hình tam giác
+// for (let i = 1; i <= 4; i++) {
+//     for (let j = 1; j <= i; j++) {
+//         document.write(j + "&nbsp;");
+//     }
+//     document.write("<br>");
+// }
+for (let i = 3; i <= 50; i = i + 3) {
+    document.write(i + '<br>');
+}

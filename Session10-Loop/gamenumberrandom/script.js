@@ -28,19 +28,19 @@ document.getElementById('spinButton').onclick = function () {
     let spinDegrees = Math.floor(Math.random() * 360) + 1800; // Quay ít nhất 5 vòng
     document.getElementById('spinWheel').style.transform = `rotate(${spinDegrees}deg)`;
 
-    const colors = ["#f00", "#ff0", "#0f0", "#00f"];
+    const numbers = [1, 2, 3, 4];
     // Sau khi quay xong, chọn số ngẫu nhiên
     setTimeout(function () {
         // Lấy số ngẫu nhiên sau khi quay
-        let randomColor = colors[Math.floor(Math.random() * colors.length)];
+        let randomNumber = numbers[Math.floor(Math.random() * numbers.length)];
 
         // Hiển thị số ngẫu nhiên và so sánh với số đoán
-        document.getElementById('numberDisplay').textContent = `Số ngẫu nhiên đã quay: ${randomColor}`;
+        document.getElementById('numberDisplay').textContent = `Số ngẫu nhiên đã quay: ${randomNumber}`;
 
-        if (userGuess === randomColor) {
+        if (userGuess === randomNumber) {
             document.getElementById('message').textContent = "Chúc mừng bạn đã đoán đúng!";
         } else {
-            document.getElementById('message').textContent = `Bạn đoán sai. Số đúng là: ${randomColor}`;
+            document.getElementById('message').textContent = `Bạn đoán sai. Số đúng là: ${randomNumber}`;
         }
 
         // Tắt nút "Quay" sau khi quay xong
