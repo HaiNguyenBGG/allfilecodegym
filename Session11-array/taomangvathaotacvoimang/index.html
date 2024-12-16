@@ -5,18 +5,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
     <h1>Thao tác với mảng cơ bản</h1>
     <label for="elementInput">Nhập phần tử mảng: </label>
     <input type="text" id="elementInput" placeholder="Nhập phần tử">
-    <button onclick="displayArray()"> Hiển Thị</button><br>
-    <button onclick="addElement()">Thêm vào mảng</button>
-    <button onclick="removeElement()">Xóa phần tử mảng</button>
+    <div>
+        <button onclick="displayArray()"> Hiển Thị</button>
+        <button onclick="findElement()"> Tìm kiếm</button>
+    </div><br>
+    <div class="button-container">
+        <button onclick="addElement()">Thêm vào mảng</button>
+        <button onclick="removeElement()">Xóa phần tử mảng</button>
+    </div><br>
+    <div>
+        <button onclick="sortArray()">Sắp xếp mảng</button>
+        <button onclick="reverseArray()">Đảo ngược mảng</button>
+    </div><br>
+    <div>
+        <button onclick="findmaxValue()">Tìm số lớn nhất</button>
+    </div>
     <script src="script.js"></script>
     <h2>Mảng hiện tại: </h2>
     <p id="arrayDisplay"></p>
+    <div id="dissplayFind"></div>
 </body>
 
 </html>
