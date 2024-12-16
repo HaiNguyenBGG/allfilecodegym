@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1>Giỏ hàng đơn giản</h1>
+
+    <!-- Header -->
+    <header>
+        <h1>Giỏ Hàng Của Bạn</h1>
+    </header>
+
+    <!-- Banner -->
+    <div class="banner">
+        <div>Chào Mừng Đến Với Cửa Hàng Của Chúng Tôi!</div>
+    </div>
+
+    <!-- Product List -->
+    <div class="product-list">
+        <div class="product">
+            <img src="https://via.placeholder.com/200" alt="Product 1">
+            <h3>Sản phẩm 1</h3>
+            <p>Giá: $10</p>
+            <button onclick="addToCart('Sản phẩm 1', 10)">Thêm vào giỏ</button>
+        </div>
+        <div class="product">
+            <img src="https://via.placeholder.com/200" alt="Product 2">
+            <h3>Sản phẩm 2</h3>
+            <p>Giá: $15</p>
+            <button onclick="addToCart('Sản phẩm 2', 15)">Thêm vào giỏ</button>
+        </div>
+        <div class="product">
+            <img src="https://via.placeholder.com/200" alt="Product 3">
+            <h3>Sản phẩm 3</h3>
+            <p>Giá: $20</p>
+            <button onclick="addToCart('Sản phẩm 3', 20)">Thêm vào giỏ</button>
+        </div>
+    </div>
+
+    <!-- Cart -->
+    <div class="cart">
+        <h2>Giỏ Hàng</h2>
+        <div id="cart-items"></div>
+        <div class="total">
+            Tổng giá trị: $<span id="total-value">0</span>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 Cửa Hàng Của Chúng Tôi</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

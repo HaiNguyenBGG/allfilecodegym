@@ -96,3 +96,8 @@
 // // }
 // var firstvalue = array[1];
 // console.log(firstvalue);
+
+const cars = ["BMW", "Volvo", "Kia", "Mazda"];
+for (let index in cars){
+    console.log(cars[index]);
+}
