@@ -1,63 +1,65 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>CÁO GIẢ CẦY SHOP</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <h1>Giỏ hàng đơn giản</h1>
-
-    <!-- Header -->
     <header>
-        <h1>Giỏ Hàng Của Bạn</h1>
+        <div class="navbar">
+            <!-- Logo chính -->
+            <div class="logo">
+                <img src="logo.jpg" alt="Logo">
+                <span>caogiacay.vn</span>
+            </div>
+            <!-- Tìm kiếm -->
+            <div class="search-bar">
+                <input type="text" placeholder="Bạn tìm gì...">
+            </div>
+            <!-- Giỏ hàng và đăng nhập -->
+            <div class="options">
+                <span><img src="logologin.jpg"></span>
+                <span><a href="#">Đăng nhập</a></span>
+                <span><p>&nbsp;&nbsp;</p></span>
+                <span><img src="logogiohang.jpg"></span>
+                <span><a href="#">Giỏ hàng</a></span>
+            </div>
+            <!-- Vị trí -->
+            <div class="location">
+                <select id="location" name="location">
+                    <option value="Hanoi">Hà Nội</option>
+                    <option value="HoChiMinh">Hồ Chí Minh</option>
+                    <option value="DaNang">Đà Nẵng</option>
+                    <option value="HaiPhong">Hải Phòng</option>
+                    <option value="CanTho">Cần Thơ</option>
+                    <option value="BinhDuong">Bình Dương</option>
+                    <option value="DongNai">Đồng Nai</option>
+                    <option value="QuangNinh">Quảng Ninh</option>
+                    <option value="NgheAn">Nghệ An</option>
+                    <option value="ThanhHoa">Thanh Hóa</option>
+                </select>
+            </div>
+        </div>
+        <!-- Menu -->
+        <nav class="menu">
+            <ul>
+                <li><a href="#">Điện thoại</a></li>
+                <li><a href="#">Laptop</a></li>
+                <li><a href="#">Phụ kiện</a></li>
+                <li><a href="#">Smartwatch</a></li>
+                <li><a href="#">Đồng hồ</a></li>
+                <li><a href="#">Tablet</a></li>
+                <li><a href="#">Máy cũ, Thu cũ</a></li>
+                <li><a href="#">PC, Máy in</a></li>
+                <li><a href="#">Sim, Thẻ cào</a></li>
+                <li><a href="#">Dịch vụ tiện ích</a></li>
+            </ul>
+        </nav>
     </header>
-
-    <!-- Banner -->
-    <div class="banner">
-        <div>Chào Mừng Đến Với Cửa Hàng Của Chúng Tôi!</div>
-    </div>
-
-    <!-- Product List -->
-    <div class="product-list">
-        <div class="product">
-            <img src="https://via.placeholder.com/200" alt="Product 1">
-            <h3>Sản phẩm 1</h3>
-            <p>Giá: $10</p>
-            <button onclick="addToCart('Sản phẩm 1', 10)">Thêm vào giỏ</button>
-        </div>
-        <div class="product">
-            <img src="https://via.placeholder.com/200" alt="Product 2">
-            <h3>Sản phẩm 2</h3>
-            <p>Giá: $15</p>
-            <button onclick="addToCart('Sản phẩm 2', 15)">Thêm vào giỏ</button>
-        </div>
-        <div class="product">
-            <img src="https://via.placeholder.com/200" alt="Product 3">
-            <h3>Sản phẩm 3</h3>
-            <p>Giá: $20</p>
-            <button onclick="addToCart('Sản phẩm 3', 20)">Thêm vào giỏ</button>
-        </div>
-    </div>
-
-    <!-- Cart -->
-    <div class="cart">
-        <h2>Giỏ Hàng</h2>
-        <div id="cart-items"></div>
-        <div class="total">
-            Tổng giá trị: $<span id="total-value">0</span>
-        </div>
-    </div>
-
-    <!-- Footer -->
-    <footer>
-        <p>© 2024 Cửa Hàng Của Chúng Tôi</p>
-    </footer>
-
-    <script src="script.js"></script>
 </body>
 
 </html>

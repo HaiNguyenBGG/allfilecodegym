@@ -1,152 +1,130 @@
-* {
+/* Tổng quát */
+body,
+html {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-
-body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    padding: 20px;
 }
 
 /* Header */
 header {
-    background-color: #333;
-    color: white;
+    background-color: #ffffff;
+    color: #000;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Navbar chính */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+}
+
+/* Logo chính */
+.logo {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    font-size: 45px;
+}
+
+/* Ảnh logo */
+.logo img {
+    width: 50%;
+    height: auto;
+    margin-right: 10px;
+}
+
+.search-bar input {
+    width: 300px;
     padding: 20px;
-    text-align: center;
+    border-radius: 30px;
+    border: #000;
 }
 
-header h1 {
-    font-size: 2em;
-}
-
-/* Banner */
-.banner {
-    width: 100%;
-    height: 200px;
-    background-image: url('https://via.placeholder.com/1200x200/0000FF/808080?text=Welcome+to+Our+Shop');
-    background-size: cover;
-    background-position: center;
-    text-align: center;
-    color: white;
+.search-bar {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 3em;
+    width: 100%;
 }
 
-/* Product List */
-.product-list {
+.options {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    margin-top: 20px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
 }
 
-.product {
-    background-color: white;
+.options span {
+    display: flex;
+    align-items: center;
+    margin: 0 5px;
+    /* Khoảng cách giữa các mục */
+}
+
+.options img {
+    width: 80px;
+    height: auto;
+    margin-right: 10px;
+}
+
+.options a {
+    color: #000;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.location {
+    margin-right: 70px;
+    color: #000000;
+    text-decoration: none;
+    font-size: 20px;
     padding: 15px;
-    margin: 10px;
-    border-radius: 8px;
-    width: 200px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
 }
 
-.product img {
-    width: 100%;
-    border-radius: 8px;
-}
-
-.product h3 {
-    margin-top: 10px;
-    font-size: 1.2em;
-}
-
-.product p {
-    margin: 10px 0;
-    font-size: 1.1em;
-}
-
-.product button {
-    background-color: #28a745;
-    color: white;
+.location select {
+    font-size: 20px;
     padding: 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    width: 100%;
-    font-size: 1.1em;
+    width: 200%;
+}
+.location option {
+    font-size: 20px;
 }
 
-.product button:hover {
-    background-color: #218838;
+.options a:hover {
+    text-decoration: underline;
 }
 
-/* Cart */
-.cart {
-    margin-top: 50px;
+/* Thanh menu điều hướng */
+.menu {
+    background-color: #7b65f9;
+    border-top: 1px solid #e0e0e0;
 }
 
-.cart h2 {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.cart-items {
-    list-style: none;
+.menu ul {
+    list-style-type: none;
+    display: flex;
     padding: 0;
     margin: 0;
+    justify-content: space-around;
 }
 
-.cart-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #fff;
-    padding: 10px;
-    margin: 5px 0;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+.menu li {
+    padding: 10px 15px;
 }
 
-.cart-item span {
-    font-size: 1.1em;
+.menu a {
+    text-decoration: none;
+    color: #000;
+    font-weight: 600;
+    font-size: 14px;
 }
 
-.cart-item input {
-    width: 50px;
-    padding: 5px;
-    text-align: center;
-    font-size: 1em;
-}
-
-.cart-item button {
-    background-color: #dc3545;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    cursor: pointer;
-    border-radius: 5px;
-    font-size: 1em;
-}
-
-.cart-item button:hover {
-    background-color: #c82333;
-}
-
-.total {
-    font-weight: bold;
-    font-size: 1.3em;
-    margin-top: 20px;
-    text-align: right;
-}
-
-footer {
-    text-align: center;
-    margin-top: 50px;
-    font-size: 0.9em;
-    color: #555;
+.menu a:hover {
+    color: #0056b3;
+    text-decoration: underline;
 }
