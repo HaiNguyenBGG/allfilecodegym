@@ -91,6 +91,7 @@ header {
     padding: 10px;
     width: 200%;
 }
+
 .location option {
     font-size: 20px;
 }
@@ -101,7 +102,7 @@ header {
 
 /* Thanh menu điều hướng */
 .menu {
-    background-color: #7b65f9;
+    background-color: #fd74df;
     border-top: 1px solid #e0e0e0;
 }
 
@@ -119,12 +120,156 @@ header {
 
 .menu a {
     text-decoration: none;
-    color: #000;
+    color: #ffffff;
     font-weight: 600;
-    font-size: 14px;
+    font-size: 24px;
 }
 
 .menu a:hover {
-    color: #0056b3;
+    color: #c0f1ff;
     text-decoration: underline;
+}
+
+/* Navigation */
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    color: #fff;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+/* Main Layout */
+main {
+    display: flex;
+    margin: 20px;
+}
+
+/* Danh mục sản phẩm */
+.left-panel {
+    width: 1000px;
+    height: auto;
+    border: 2px solid black;
+    border-radius: 20px;
+    padding: 15px;
+    overflow-y: auto;
+}
+
+.left-panel h3 {
+    margin-bottom: 10px;
+}
+
+.left-panel .product-category {
+    list-style: none;
+}
+
+.left-panel .product-category li {
+    padding: 8px 0;
+    border-bottom: 1px solid #ddd;
+    cursor: pointer;
+    transition: background 5s ease;
+}
+
+.left-panel .product-category li:hover {
+    background: #f1f1f1;
+}
+
+/* Pannel Phải */
+.right-panel {
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+    max-width: 100%;
+    white-space: normal;
+    flex-grow: 1;
+    object-fit: cover;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+
+.right-panel .top-box,
+.right-panel .bottom-box {
+    flex: 1;
+    margin-bottom: 20px;
+    border: 2px solid black;
+    border-radius: 20px;
+    padding: 10px;
+    max-width: 100%;
+}
+.right-panel .top-box{
+    width: 98.2%;
+    height: 10px;
+}
+
+.banner {
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+}
+
+.banner img {
+    min-width: 100%;
+    height: 100%;
+    transition: transform 20s ease-in-out;
+    animation: slide 30s infinite;
+}
+
+/* Banner Animation */
+@keyframes slide {
+    0% {
+        transform: translateX(0);
+    }
+
+    33% {
+        transform: translateX(-100%);
+    }
+
+    66% {
+        transform: translateX(-200%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+/* Sản phẩm chính */
+.bottom-box {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    overflow-y: scroll;
+}
+
+.product-item {
+    display: flex;
+    border: 1px solid #ddd; 
+    padding: 10px;
+    border-radius: 10px;
+    align-items: center;
+    flex: 1;
+    max-width: calc(33.33% - 20px);
+    box-sizing: border-box;
+}
+
+.product-item img {
+    width: 100px;
+    height: 100px;
+    margin-right: 10px;
+}
+
+.product-info h4 {
+    margin-bottom: 5px;
+}
+
+.product-info p {
+    color: #888;
+    font-size: 14px;
 }
