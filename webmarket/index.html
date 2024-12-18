@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CÁO GIẢ CẦY SHOP</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
 </head>
 
 <body>
@@ -18,22 +19,24 @@
             </div>
             <!-- Tìm kiếm -->
             <div class="search-bar">
-                <input type="text" placeholder="Bạn tìm gì...">
+                <img src="search.jpg" alt="Search" id="search-icon">
+                <input type="text" placeholder="Bạn tìm gì..." id="search-input">
             </div>
             <!-- Giỏ hàng và đăng nhập -->
             <div class="options">
-                <span><img src="logologin.jpg"></span>
-                <span><a href="#">Đăng nhập</a></span>
-                <span>
-                    <p>&nbsp;&nbsp;</p>
+                <span><img src="./logologin.jpg" alt="Đăng nhập"></span>
+                <span><a id="dangnhap" href="#">Đăng nhập</a></span>
+                <span><p>&nbsp;&nbsp;</p></span>
+                <span><img src="./logogiohang.jpg" alt="Giỏ hàng"></span>
+                <span><a id="giohang" href="#">Giỏ hàng</a></span>
+                <span id="cart-count-container" class="cart-count-container">
+                    <span id="cart-count" class="cart-count">0</span>
                 </span>
-                <span><img src="logogiohang.jpg"></span>
-                <span><a href="#">Giỏ hàng</a></span>
             </div>
-            <!-- Vị trí -->
+            <!-- Vị trí (api) -->
             <div class="location">
                 <select id="location" name="location">
-                    <option value="Hanoi">Hà Nội</option>
+                    <!-- <option value="Hanoi">Hà Nội</option>
                     <option value="HoChiMinh">Hồ Chí Minh</option>
                     <option value="DaNang">Đà Nẵng</option>
                     <option value="HaiPhong">Hải Phòng</option>
@@ -42,18 +45,22 @@
                     <option value="DongNai">Đồng Nai</option>
                     <option value="QuangNinh">Quảng Ninh</option>
                     <option value="NgheAn">Nghệ An</option>
-                    <option value="ThanhHoa">Thanh Hóa</option>
+                    <option value="ThanhHoa">Thanh Hóa</option> -->
                 </select>
             </div>
         </div>
         <!-- Menu -->
         <nav class="menu">
             <ul>
-                <li><a href="#">Nhẫn Kim Cương</a></li>
-                <li><a href="#">Bông Tai Kim Cương</a></li>
-                <li><a href="#">Mặt Dây Chuyền Kim Cương</a></li>
-                <li><a href="#">Lắc/Vòng Tay Kim Cương</a></li>
-                <li><a href="#">Bộ Trang Sức Kim Cương</a></li>
+                <li><a href="#">KIA Morning</a></li>
+                <li><a href="#">KIA Soluto</a></li>
+                <li><a href="#">KIA K3</a></li>
+                <li><a href="#">KIA K5</a></li>
+                <li><a href="#">KIA Sonet</a></li>
+                <li><a href="#">KIA Seltos</a></li>
+                <li><a href="#">KIA Sorento</a></li>
+                <li><a href="#">KIA Canival</a></li>
+
             </ul>
         </nav>
     </header>
@@ -62,38 +69,37 @@
         <!-- Cột trái -->
         <div class="left-panel">
             <h3>Danh Mục Sản Phẩm</h3>
-            <ul class="listsanpham">
-                <li>Nhẫn Cưới</li>
-                <li>Nhẫn Kim Cương</li>
-                <li>Bông Tai</li>
-                <li>Lắc Tay</li>
-                <li>Dây Chuyền</li>
-                <li>Bộ Trang Sức</li>
-            </ul>
+            <ul class="listsanpham"></ul>
+            <div id="variantNameDisplay"></div>
+            <!-- Thêm ảnh dài vào cuối -->
+            <img src="your-image-url.jpg" alt="Long Image" class="long-image">
         </div>
-
-        <!-- Cột phải-->
+        <!-- Cột phải -->
         <div class="right-panel">
             <!-- Banner -->
-            <div class="top-box">
-                <div class="banner">
-                    <img src="banner1.jpg" alt="Banner 1">
-                    <img src="banner2.jpg" alt="Banner 2">
-                    <img src="banner3.jpg" alt="Banner 3">
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="banner1.jpg" alt="Banner 1">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="banner2.jpg" alt="Banner 2">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="banner3.jpg" alt="Banner 3">
+                    </div>
                 </div>
+                <!-- Nút điều hướng -->
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                <!-- Pagination -->
+                <div class="swiper-pagination"></div>
             </div>
-
+            <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
             <!-- Thông tin sản phẩm -->
             <div class="bottom-box" id="product-container">
-                <div class="product-item">
-                    <!-- <img src="nhankimcuongcaocap.jpg" alt="Sản phẩm 1">
-                    <div class="product-info">
-                        <h4>Nhẫn Kim Cương Cao Cấp</h4>
-                        <p>Giá: 50.000.000 VNĐ</p>
-                    </div>
-                </div> -->
+
             </div>
-        </div>
     </main>
     <script src="script.js"></script>
 </body>

@@ -9,17 +9,26 @@ html {
 
 /* Header */
 header {
+    width: auto;
+    height: auto;
+    /* position: fixed; */
     background-color: #ffffff;
     color: #000;
     display: flex;
     flex-direction: column;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    top: 0;
+    left: 0;
 }
 
 /* Navbar chính */
 .navbar {
+    width: auto;
+    height: auto;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     padding: 10px 20px;
 }
 
@@ -38,11 +47,13 @@ header {
     margin-right: 10px;
 }
 
+
 .search-bar input {
-    width: 300px;
+    width: 350px;
     padding: 20px;
     border-radius: 30px;
     border: #000;
+    margin-left: 0px;
 }
 
 .search-bar {
@@ -52,7 +63,62 @@ header {
     width: 100%;
 }
 
+.search-bar img {
+    width: 100px;
+    height: 100px;
+    margin-left: 200px;
+}
+
+.search-icon:hover {
+    opacity: 0.7;
+    cursor: pointer;
+}
+
+/* CSS cho search icon */
+#search-icon {
+    cursor: pointer;
+    transition: transform 0.3s ease, color 0.3s ease; /* Thêm hiệu ứng chuyển động */
+}
+
+/* Hiệu ứng hover cho search icon */
+#search-icon:hover {
+    transform: scale(1.1); /* Tăng kích thước logo khi hover */
+    color: #ff6600; /* Thay đổi màu sắc khi hover */
+}
 .options {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.options span {
+    margin-left: 15px;
+    font-size: 18px;
+}
+
+#cart-count-container {
+    position: relative;
+}
+
+.cart-count {
+    position: absolute;
+    top: -15px;
+    right: 65px;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 5px 10px;
+    font-size: 14px;
+}
+
+/* Khi hover lên biểu tượng giỏ hàng */
+.options img:hover {
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+/* .options {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -64,7 +130,7 @@ header {
     align-items: center;
     margin: 0 5px;
     /* Khoảng cách giữa các mục */
-}
+/* } */
 
 .options img {
     width: 80px;
@@ -89,7 +155,7 @@ header {
 .location select {
     font-size: 20px;
     padding: 10px;
-    width: 200%;
+    width: 200px;
 }
 
 .location option {
@@ -147,21 +213,59 @@ nav ul li {
 /* Main Layout */
 main {
     display: flex;
+    /* Đặt layout ngang */
     margin: 20px;
+    gap: 20px;
+    /* Khoảng cách giữa left-panel và right-panel */
 }
 
 /* Danh mục sản phẩm */
+/* Cột trái */
 .left-panel {
-    width: 1000px;
-    height: auto;
+    max-width: 20%;
+    width: 100%;
     border: 2px solid black;
     border-radius: 20px;
     padding: 15px;
     overflow-y: auto;
+    box-sizing: border-box;
+    font-size: 30px;
+    flex-shrink: 0;
+    /* Không co lại nếu thiếu không gian */
+    display: flex;
+    flex-direction: column;
+}
+
+.long-image {
+    width: 100%;
+    height: auto;
+    margin-top: 15px;
+    object-fit: cover; /* Điều chỉnh ảnh sao cho không bị kéo dãn hoặc biến dạng */
+    flex-shrink: 0; /* Đảm bảo ảnh không co lại */
+    display: block;
+}
+
+
+.sub-list {
+    display: none;
+    padding-left: 20px;
+
+}
+
+/* Thêm kiểu khi danh sách con được mở */
+.expanded>.sub-list {
+    display: block;
+}
+
+/* Kiểu cho các mục trong danh sách */
+.listsanpham li {
+    cursor: pointer;
+    list-style-type: none;
+    font-size: 25px;
 }
 
 .left-panel h3 {
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 
 .left-panel .product-category {
@@ -179,22 +283,79 @@ main {
     background: #f1f1f1;
 }
 
-/* Pannel Phải */
+/* Right Panel */
 .right-panel {
-    width: auto;
-    display: flex;
-    flex-direction: column;
-    margin-left: 20px;
-    max-width: 100%;
-    white-space: normal;
     flex-grow: 1;
-    object-fit: cover;
-    flex-wrap: wrap;
-    align-items: flex-start;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 20px;
+    /* Khoảng cách từ panel trái */
+    width: 100%;
+    /* Đảm bảo panel chiếm hết chiều rộng của khu vực bên phải */
+    max-width: 79%;
+    /* Giới hạn chiều rộng tối đa cho panel phải */
+    box-sizing: border-box;
+    /* Đảm bảo padding và margin được tính vào kích thước */
+    gap: 20px;
+    /* Khoảng cách giữa các phần tử con */
+    flex-shrink: 0;
+    /* Đảm bảo right-panel không bị thu hẹp khi không gian hẹp */
 }
 
-.right-panel .top-box,
-.right-panel .bottom-box {
+/* Swiper Container */
+.swiper-container {
+    width: 100%;
+    /* Đảm bảo swiper chiếm hết chiều rộng */
+    height: 100%px;
+    /* Đảm bảo swiper chiếm hết chiều cao */
+    display: flex;
+    flex-direction: row;
+    /* Sắp xếp các phần tử theo chiều dọc */
+    overflow: hidden;
+    /* Ẩn bất kỳ nội dung nào vượt quá container */
+    margin-top: 0;
+    /* Đảm bảo không có margin dư thừa */
+}
+
+/* Navigation Buttons */
+.swiper-button-next,
+.swiper-button-prev {
+    display: none;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+    visibility: hidden;
+}
+
+/* Hiệu ứng hover */
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+    background-color: rgba(255, 255, 255, 1);
+    /* Nền trắng */
+}
+
+.swiper-pagination {
+    display: none;
+}
+
+.swiper-slide {
+    max-width: 100%;
+    /* Thay đổi chiều rộng của slide (80% hoặc tùy chọn) */
+    height: auto;
+    /* Thay đổi chiều cao của slide */
+}
+
+.swiper-slide img {
+    width: 100%;
+    /* Chiếm toàn bộ chiều rộng của slide */
+    height: 100%;
+    /* Chiếm toàn bộ chiều cao của slide */
+    object-fit: cover;
+    /* Giữ tỷ lệ và cắt ảnh sao cho vừa với slide */
+}
+
+.right-panel .top-box{
     flex: 1;
     margin-bottom: 20px;
     border: 2px solid black;
@@ -202,74 +363,63 @@ main {
     padding: 10px;
     max-width: 100%;
 }
-.right-panel .top-box{
+
+.right-panel .top-box {
     width: 98.2%;
-    height: 10px;
+    max-height: 250px;
 }
-
-.banner {
-    display: flex;
-    overflow: hidden;
-    width: 100%;
-    height: 100%;
-}
-
-.banner img {
-    min-width: 100%;
-    height: 100%;
-    transition: transform 20s ease-in-out;
-    animation: slide 30s infinite;
-}
-
-/* Banner Animation */
-@keyframes slide {
-    0% {
-        transform: translateX(0);
-    }
-
-    33% {
-        transform: translateX(-100%);
-    }
-
-    66% {
-        transform: translateX(-200%);
-    }
-
-    100% {
-        transform: translateX(0);
-    }
+.right-panel .bottom-box {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Chia thành 3 cột bằng nhau */
+    gap: 20px;
+    margin-top: 20px;
+    width: 100%; /* Đặt lại chiều rộng của `.bottom-box` sao cho vừa với ba sản phẩm */
+    height: 1250px; /* Đặt lại chiều cao của `.bottom-box` */
+    overflow-y: auto; /* Vẫn giữ cho scrollbar khi nội dung tràn ra ngoài */
+    flex-wrap: wrap; /* Cho phép các sản phẩm hiển thị trên nhiều dòng khi cần */
 }
 
 /* Sản phẩm chính */
 .bottom-box {
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-    overflow-y: scroll;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Chia thành 3 cột bằng nhau */
+    grid-template-rows: repeat(3, 1fr); /* Chia thành 3 cột bằng nhau */
+    gap: 20px; /* Khoảng cách giữa các phần tử */
+    overflow-y: hidden; /* Ẩn thanh cuộn dọc */
 }
 
 .product-item {
+    display: grid;
+    grid-template-columns: 1fr; /* Chia sản phẩm thành 3 phần bằng nhau */
+    gap: 20px; /* Khoảng cách giữa các phần bên trong mỗi sản phẩm */
+    border: 1px solid #ddd;
+    margin-bottom: 5px; /* Khoảng cách giữa các sản phẩm */
+    text-align: center; /* Căn giữa text trong box */
+    height: 100%; /* Chiều cao cố định cho sản phẩm */
+    box-sizing: border-box; /* Đảm bảo padding và border không làm lệch nội dung */
+}
+
+.product-info {
     display: flex;
-    border: 1px solid #ddd; 
-    padding: 10px;
-    border-radius: 10px;
-    align-items: center;
-    flex: 1;
-    max-width: calc(33.33% - 20px);
-    box-sizing: border-box;
+    flex-direction: column;
+    gap: 20px; /* Khoảng cách giữa các phần tử thông tin */
+    box-sizing: border-box; /* Đảm bảo padding và border không làm lệch nội dung */
+    width: 100%; /* Giới hạn chiều rộng của thông tin sao cho không bị tràn */
+    overflow: hidden; /* Cắt bớt nội dung tràn ra ngoài */
 }
 
-.product-item img {
-    width: 100px;
-    height: 100px;
-    margin-right: 10px;
+.product-info h4, .product-info p {
+    margin: 0; /* Loại bỏ lề không cần thiết */
+    padding: 0; /* Khoảng cách hợp lý giữa các thông tin */
+    box-sizing: border-box; /* Đảm bảo padding và border không làm lệch nội dung */
+    width: 100%; /* Đảm bảo không có phần tràn ngoài */
+    overflow: hidden; /* Cắt bớt nội dung tràn ra ngoài */
+    white-space: nowrap; /* Không để text xuống hàng */
+    text-overflow: ellipsis; /* Hiện dấu chấm lửng khi text bị cắt */
 }
-
-.product-info h4 {
-    margin-bottom: 5px;
-}
-
-.product-info p {
-    color: #888;
-    font-size: 14px;
+.car-image {
+    width: 390px;  /* Đặt chiều rộng ảnh */
+    height: auto;   /* Giữ tỷ lệ ảnh */
+    display: block; /* Đảm bảo ảnh hiển thị dưới dạng block */
+    margin-bottom: 10px; /* Khoảng cách dưới ảnh */
 }

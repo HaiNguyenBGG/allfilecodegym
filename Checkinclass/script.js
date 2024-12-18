@@ -97,7 +97,28 @@
 // var firstvalue = array[1];
 // console.log(firstvalue);
 
-const cars = ["BMW", "Volvo", "Kia", "Mazda"];
-for (let index in cars){
-    console.log(cars[index]);
+// const cars = ["BMW", "Volvo", "Kia", "Mazda"];
+// for (let index in cars){
+//     console.log(cars[index]);
+// }
+
+// const number = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 16];
+// for (let i = 0; i <= number.length - 1; i++) {
+//     if (number[i] % 2 === 0) {
+//         console.log(number[i]);
+//     }
+// }
+
+const matrix = new Array(3);
+let count = 1;
+let sum = 0;
+for (let i = 0; i < matrix.length; i++) {
+    matrix[i] = new Array(3);
+    for (let j = 0; j < matrix.length; j++) {
+        matrix[i][j] = count;
+        count++;
+        sum +=matrix[i][j];
+    }
+    // console.log(matrix[i]);
 }
+console.log(sum);
