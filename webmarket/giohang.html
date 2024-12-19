@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giỏ hàng</title>
+    <!-- Liên kết tới CSS của bạn -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" href="hieuung.css">
+</head>
+
+<body>
+    <div class="navbar">
+        <!-- Logo chính -->
+        <div class="logo" onclick="<a href='index.html'></a>">
+            <img src="logo.jpg" alt="Logo">
+            <span>caogiacay.vn</span>
+        </div>
+        <!-- Tìm kiếm -->
+        <div class="search-bar">
+            <div class="search-input">
+                <input type="text" placeholder="Bạn tìm gì..." id="search-input">
+            </div>
+            <div class="search-icon">
+                <img src="search.jpg" alt="Search" id="search-icon">
+            </div>
+        </div>
+        <!-- Giỏ hàng và đăng nhập -->
+        <div class="options">
+            <span><img src="./logologin.jpg" alt="Đăng nhập"></span>
+            <span><a id="dangnhap" href="#">Đăng nhập</a></span>
+            <span>
+                <p>&nbsp;&nbsp;</p>
+            </span>
+            <span><img src="./logogiohang.jpg" alt="Giỏ hàng"></span>
+            <span><a id="giohang" href="giohang.html">Giỏ hàng</a></span>
+            <span id="cart-count-container" class="cart-count-container">
+                <span id="cart-count" class="cart-count">0</span>
+            </span>
+        </div>
+        <!-- Vị trí (api) -->
+        <div class="location">
+            <select id="location" name="location">
+                <!-- Các lựa chọn vị trí có thể được thêm vào đây -->
+            </select>
+        </div>
+    </div>
+    <h1>Giỏ Hàng Ô Tô</h1>
+    <div class="cart-container">
+        <div id="cartItems"></div>
+        <p class="total">Tổng tiền: <span id="totalPrice">0</span> VND</p>
+        <div class="checkout">
+            <button onclick="checkout()">Thanh Toán</button>
+        </div>
+    </div>
+</body>
+
+</html>

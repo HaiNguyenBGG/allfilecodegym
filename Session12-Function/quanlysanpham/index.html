@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ứng Dụng Quản Lý Sản Phẩm</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1>Ứng Dụng Quản Lý Sản Phẩm</h1>
+
+    <div>
+        <input type="text" id="productName" placeholder="Tên sản phẩm">
+        <input type="number" id="productPrice" placeholder="Giá sản phẩm">
+        <input type="number" id="productQuantity" placeholder="Số lượng">
+        <button id="addButton" onclick="addProduct()">Thêm sản phẩm</button>
+        <button id="updateButton" onclick="updateProduct()" style="display: none;">Sửa sản phẩm</button>
+    </div>
+
+    <h2>Danh sách sản phẩm:</h2>
+    <ul id="productList"></ul>
+
+    <h2>Giỏ hàng:</h2>
+    <ul id="cartList"></ul>
+    <p><strong>Tổng tiền:</strong> <span id="totalAmount">0</span> VND</p>
+
+    <!-- Phần thanh toán -->
+    <div id="paymentSection" style="display:none;">
+        <h3>Thanh toán:</h3>
+        <div id="qrCodeContainer">
+            <h4>Mã QR:</h4>
+            <img src="qrcaogiacayshop.jpg" alt="Mã QR thanh toán" class="qr-image" onclick="showFullScreenQRCode(this)">
+        </div>
+        <div id="modal" class="modal">
+            <span class="close">&times;</span>
+            <img class="modal-content" id="modalImg">
+        </div>
+        <button id="paidButton">Đã thanh toán</button>
+        <button id="closeButton">Đóng</button>
+    </div>
+
+    <!-- Nút thanh toán -->
+    <button id="paymentButton">Thanh toán</button>
+    <script src="script.js"></script>
+</body>
+
+</html>

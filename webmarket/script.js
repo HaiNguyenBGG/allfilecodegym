@@ -728,3 +728,52 @@ document.getElementById('logo').addEventListener('click', function () {
     window.location.reload();
 });
 
+//Lưu giỏ hàng
+function saveCartToLocalStorage(cart) {
+    localStorage.setItem("cart", JSON.stringify(cart));
+    console.log("Cart saved to localStorage:", cart);
+}
+
+//Tải giỏ hàng
+function loadCartFromLocalStorage() {
+    const savedCart = localStorage.getItem("cart");
+    if (savedCart) {
+        console.log("Cart loaded from localStorage");
+        return JSON.parse(savedCart); // Chuyển từ JSON thành mảng
+    } else {
+        console.log("No cart found in localStorage");
+        return []; // Trả về mảng rỗng nếu chưa có dữ liệu
+    }
+}
+
+//Tính năng thêm và xóa
+function addToCart(product) {
+    cart.push(product); // Thêm sản phẩm vào mảng giỏ hàng
+    saveCartToLocalStorage(cart); // Lưu vào localStorage
+    console.log("Product added:", product);
+}
+
+function removeFromCart(index) {
+    cart.splice(index, 1); // Xóa sản phẩm theo chỉ số
+    saveCartToLocalStorage(cart); // Cập nhật localStorage
+    console.log("Product removed at index:", index);
+}
+
+// Tải giỏ hàng từ localStorage khi ứng dụng khởi chạy
+cart = loadCartFromLocalStorage();
+console.log("Current cart:", cart);
+
+function renderCart() {
+    const cartDiv = document.getElementById('cartItems');
+    cartDiv.innerHTML = cart.map((item, index) => `
+        <div>
+            <img src="${item.image}" alt="${item.name}" style="width:50px;"/>
+            <p>${item.name}</p>
+            <p>${item.price || 'Liên hệ'}</p>
+            <button onclick="removeFromCart(${index})">Xóa</button>
+        </div>
+    `).join('');
+}
+
+// Hiển thị giỏ hàng khi tải trang
+renderCart();

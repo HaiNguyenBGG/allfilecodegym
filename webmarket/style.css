@@ -257,28 +257,6 @@ main {
     /* Đảm bảo không có margin dư thừa */
 }
 
-/* Navigation Buttons */
-.swiper-button-next,
-.swiper-button-prev {
-    display: none;
-}
-
-.swiper-button-prev,
-.swiper-button-next {
-    visibility: hidden;
-}
-
-/* Hiệu ứng hover */
-.swiper-button-next:hover,
-.swiper-button-prev:hover {
-    background-color: rgba(255, 255, 255, 1);
-    /* Nền trắng */
-}
-
-.swiper-pagination {
-    display: none;
-}
-
 .swiper-slide {
     max-width: 100%;
     /* Thay đổi chiều rộng của slide (80% hoặc tùy chọn) */
