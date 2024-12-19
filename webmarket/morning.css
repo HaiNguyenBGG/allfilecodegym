@@ -1,0 +1,91 @@
+
+/* Container chứa các sản phẩm */
+#product-container {
+    display: flex;
+    flex-wrap: wrap; /* Cho phép sản phẩm tự động xuống dòng khi không đủ chỗ */
+    justify-content: space-around; /* Căn giữa các sản phẩm */
+    gap: 20px; /* Khoảng cách giữa các sản phẩm */
+    padding: 20px;
+}
+
+/* Style cho mỗi xe */
+.car-box {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 280px; /* Đặt chiều rộng cố định cho mỗi sản phẩm */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    margin: 10px;
+}
+
+/* Ảnh sản phẩm */
+.car-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* Thông tin sản phẩm */
+.car-box h3 {
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.car-box p {
+    margin: 5px 0;
+    font-size: 14px;
+    text-align: center;
+}
+
+/* Danh sách tính năng */
+.car-box ul {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 10px;
+}
+
+.car-box li {
+    margin: 5px 0;
+    font-size: 14px;
+    text-align: center;
+}
+
+/* Các nút */
+button {
+    padding: 10px;
+    margin: 5px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 16px;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+button:focus {
+    outline: none;
+}
+
+button:nth-child(1) {
+    background-color: #28a745;
+    color: white;
+}
+
+button:nth-child(2) {
+    background-color: #007bff;
+    color: white;
+}
+
+button:nth-child(3) {
+    background-color: #ff6347;
+    color: white;
+}

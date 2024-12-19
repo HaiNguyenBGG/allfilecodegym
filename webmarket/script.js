@@ -1,3 +1,5 @@
+//Mảng giỏ hàng
+let cart = [];
 const cars = [
     {
         make: 'Kia',
@@ -391,7 +393,7 @@ function shuffleArray(array) {
     return array;
 }
 
-// Hàm hiển thị các sản phẩm
+// Hàm để hiển thị các xe
 function displayCars(cars) {
     const productContainer = document.getElementById('product-container');
     productContainer.innerHTML = ''; // Xóa nội dung cũ nếu có
@@ -399,28 +401,28 @@ function displayCars(cars) {
     cars.forEach(car => {
         // Tạo container cho sản phẩm
         const carBox = document.createElement('div');
-        carBox.classList.add('car-box'); // Thêm class để dễ dàng định dạng CSS
+        carBox.classList.add('car-box');
         carBox.style.border = '1px solid #ddd';
         carBox.style.padding = '15px';
         carBox.style.margin = '10px 0';
 
         // Thêm ảnh sản phẩm
         const carImage = document.createElement('img');
-        carImage.src = car.image;
-        carImage.alt = `${car.make} ${car.model} - ${car.variantName}`;
-        carImage.classList.add('car-image');  // Áp dụng lớp CSS
+        carImage.src = car.variants[0].image;
+        carImage.alt = `${car.make} ${car.model} - ${car.variants[0].name}`;
+        carImage.classList.add('car-image');
 
         carBox.appendChild(carImage);
 
         // Thông tin sản phẩm
         const carInfo = document.createElement('div');
         carInfo.innerHTML = `
-            <h3>${car.make} ${car.model} (${car.year}) - ${car.variantName}</h3>
+            <h3>${car.make} ${car.model} (${car.year}) - ${car.variants[0].name}</h3>
             <p><strong>Loại xe:</strong> ${car.type}</p>
-            <p><strong>Động cơ:</strong> ${car.engine}</p>
-            <p><strong>Hộp số:</strong> ${car.transmission}</p>
+            <p><strong>Động cơ:</strong> ${car.variants[0].engine}</p>
+            <p><strong>Hộp số:</strong> ${car.variants[0].transmission}</p>
             <p><strong>Màu sắc:</strong> ${car.colorOptions.join(', ')}</p>
-            <p><strong>Giá:</strong> ${car.price || 'Liên hệ để biết giá'}</p>
+            <p><strong>Giá:</strong> ${car.variants[0].price || 'Liên hệ để biết giá'}</p>
         `;
         carBox.appendChild(carInfo);
 
@@ -439,18 +441,49 @@ function displayCars(cars) {
             carBox.appendChild(featuresList);
         }
 
+        // Thêm các nút "Mua" và "Xem thông tin"
+        const buttonContainer = document.createElement('div');
+        buttonContainer.style.marginTop = '10px';
+
+        // Nút "Mua"
+        const buyButton = document.createElement('button');
+        buyButton.textContent = 'Mua';
+        buyButton.style.padding = '10px';
+        buyButton.style.marginRight = '10px';
+        buyButton.style.backgroundColor = '#28a745';
+        buyButton.style.color = '#fff';
+        buyButton.style.border = 'none';
+        buyButton.style.cursor = 'pointer';
+        buyButton.addEventListener('click', () => {
+            alert(`Mua ${car.make} ${car.model} (${car.variants[0].name})`);
+        });
+        buttonContainer.appendChild(buyButton);
+
+        // Nút "Xem thông tin"
+        const infoButton = document.createElement('button');
+        infoButton.textContent = 'Xem thông tin';
+        infoButton.style.padding = '10px';
+        infoButton.style.backgroundColor = '#007bff';
+        infoButton.style.color = '#fff';
+        infoButton.style.border = 'none';
+        infoButton.style.cursor = 'pointer';
+        infoButton.addEventListener('click', () => {
+            alert(`Thông tin chi tiết về ${car.make} ${car.model} (${car.variants[0].name})`);
+        });
+        buttonContainer.appendChild(infoButton);
+
+        // Thêm button container vào carBox
+        carBox.appendChild(buttonContainer);
+
+        // Thêm carBox vào productContainer
         productContainer.appendChild(carBox);
     });
 }
 
-// Gọi hàm flattenCars để xử lý dữ liệu
-const flattenedCars = flattenCars(cars);
-
-// Xáo trộn mảng cars trước khi hiển thị
-const shuffledCars = shuffleArray(flattenedCars);
-
-// Hiển thị các sản phẩm trên trang theo thứ tự ngẫu nhiên
-displayCars(shuffledCars);
+// Gọi hàm khi trang đã tải xong
+document.addEventListener("DOMContentLoaded", () => {
+    displayCars(cars); // Gọi hàm để hiển thị danh sách xe
+});
 
 // Hàm xáo trộn mảng (Fisher-Yates shuffle)
 function shuffleArray(array) {
@@ -511,33 +544,61 @@ displayCarList();
 document.addEventListener('DOMContentLoaded', function () {
     const searchInput = document.getElementById('search-input');
     const searchIcon = document.getElementById('search-icon');
-    const productContainer = document.getElementById('product-container');
+    const productContainer = document.getElementById('product-container');  // Đảm bảo đúng phần tử container
 
-    // Hàm tìm kiếm các xe dựa trên từ khóa
-    function searchCars(query) {
-        // Lọc dữ liệu theo tên mẫu xe, biến thể hoặc các thuộc tính khác
-        const results = flattenedCars.filter(car => {
-            const modelMatch = car.model.toLowerCase().includes(query.toLowerCase());
-            const variantMatch = car.variantName.toLowerCase().includes(query.toLowerCase());
-            const featureMatch = car.features.some(feature => feature.toLowerCase().includes(query.toLowerCase()));
-            return modelMatch || variantMatch || featureMatch;
+    if (!productContainer) {
+        console.error("Không tìm thấy phần tử 'product-container'.");
+        return;
+    }
+
+    // Hàm phẳng hóa danh sách xe
+    function flattenCars(cars) {
+        let result = [];
+        cars.forEach(car => {
+            car.variants.forEach(variant => {
+                result.push({
+                    make: car.make,
+                    model: car.model,
+                    type: car.type,
+                    year: car.year,
+                    colorOptions: car.colorOptions,
+                    engine: variant.engine,
+                    transmission: variant.transmission,
+                    price: variant.price,
+                    image: variant.image,
+                    variantName: variant.name,
+                    features: car.features
+                });
+            });
         });
+        return result;
+    }
 
-        // Hiển thị kết quả tìm kiếm nếu có
-        if (results.length > 0) {
-            displayCars(results);
-        } else {
-            productContainer.innerHTML = '<p>Không có xe phù hợp với từ khóa tìm kiếm.</p>'; // Thông báo không có kết quả
-        }
+    // Lưu trữ tất cả các xe đã làm phẳng
+    const flattenedCars = flattenCars(cars);
+
+    // Hàm tìm kiếm
+    function searchCars(query) {
+        const lowerCaseQuery = query.toLowerCase();
+        return flattenedCars.filter(car =>
+            car.make.toLowerCase().includes(lowerCaseQuery) ||
+            car.model.toLowerCase().includes(lowerCaseQuery) ||
+            car.variantName.toLowerCase().includes(lowerCaseQuery)
+        );
     }
 
     // Hàm hiển thị các xe tìm được
     function displayCars(carsToDisplay) {
         productContainer.innerHTML = ''; // Xóa danh sách cũ
 
+        if (carsToDisplay.length === 0) {
+            productContainer.innerHTML = '<p>Không tìm thấy kết quả.</p>';
+            return;
+        }
+
         carsToDisplay.forEach(car => {
             const carBox = document.createElement('div');
-            carBox.classList.add('car-box'); // Thêm class để dễ dàng định dạng CSS
+            carBox.classList.add('car-box');
             carBox.style.border = '1px solid #ddd';
             carBox.style.padding = '15px';
             carBox.style.margin = '10px 0';
@@ -546,7 +607,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const carImage = document.createElement('img');
             carImage.src = car.image;
             carImage.alt = `${car.make} ${car.model} - ${car.variantName}`;
-            carImage.classList.add('car-image');  // Áp dụng lớp CSS
+            carImage.classList.add('car-image');
 
             carBox.appendChild(carImage);
 
@@ -585,7 +646,8 @@ document.addEventListener('DOMContentLoaded', function () {
     searchInput.addEventListener('input', function () {
         const query = searchInput.value.trim();
         if (query.length > 0) {
-            searchCars(query);
+            const results = searchCars(query);
+            displayCars(results);
         } else {
             displayCars(flattenedCars); // Hiển thị lại tất cả sản phẩm khi ô tìm kiếm trống
         }
@@ -595,7 +657,8 @@ document.addEventListener('DOMContentLoaded', function () {
     searchIcon.addEventListener('click', function () {
         const query = searchInput.value.trim();
         if (query.length > 0) {
-            searchCars(query);
+            const results = searchCars(query);
+            displayCars(results);
         } else {
             displayCars(flattenedCars); // Hiển thị lại tất cả sản phẩm khi ô tìm kiếm trống
         }
@@ -605,17 +668,23 @@ document.addEventListener('DOMContentLoaded', function () {
     displayCars(flattenedCars);
 });
 
-function themvaogiohang(car) {
-    // Giả sử giỏ hàng là một mảng
-    const gioHang = JSON.parse(localStorage.getItem('gioHang')) || [];
 
-    gioHang.push(car);
-
-    // Lưu lại giỏ hàng vào localStorage
-    localStorage.setItem('gioHang', JSON.stringify(gioHang));
-
-    alert('Đã thêm vào giỏ hàng!');
+// Hàm thêm sản phẩm vào giỏ hàng
+function addToCart(car) {
+    cart.push(car); // Thêm sản phẩm vào giỏ hàng
+    updateCartCount(); // Cập nhật số lượng giỏ hàng
 }
+
+// Cập nhật số lượng giỏ hàng
+function updateCartCount() {
+    const cartCount = document.getElementById('cart-count');
+    cartCount.textContent = cart.length; // Cập nhật số lượng sản phẩm trong giỏ hàng
+}
+
+// Gọi hàm khi trang đã tải xong
+document.addEventListener("DOMContentLoaded", () => {
+    displayCars(cars);  // Gọi hàm để hiển thị các sản phẩm
+});
 
 //api location
 fetch("https://provinces.open-api.vn/api/")
@@ -647,5 +716,15 @@ const swiper = new Swiper('.swiper-container', {
         el: '.swiper-pagination',
         clickable: true,
     },
+});
+
+function reloadPage() {
+    location.reload(); // reload lại trang hiện tại
+}
+
+// Lắng nghe sự kiện click trên logo
+document.getElementById('logo').addEventListener('click', function () {
+    // Reload trang khi click vào logo
+    window.location.reload();
 });
 

@@ -1,0 +1,48 @@
+/* Hiệu ứng phóng to cho logo khi hover */
+.logo img {
+    transition: transform 0.3s ease, opacity 0.3s ease; /* Thêm hiệu ứng chuyển động */
+}
+
+.logo:hover img {
+    transform: scale(1.35); /* Phóng to logo khi hover */
+}
+
+
+/* Chỉ phóng to ô input khi hover */
+.search-input:hover input {
+    transform: scale(1.05); /* Phóng to ô tìm kiếm */
+}
+
+/* Chỉ phóng to biểu tượng tìm kiếm khi hover */
+.search-icon:hover img {
+    transform: scale(1.1); /* Phóng to biểu tượng tìm kiếm */
+}
+
+
+.options img:hover {
+    transform: scale(1.1); /* Phóng to biểu tượng khi hover */
+}
+
+.options a:hover {
+    transform: scale(1.1); /* Phóng to văn bản khi hover */
+}
+
+/* Hiệu ứng phóng to cho lựa chọn vị trí */
+.location select {
+    transition: transform 0.3s ease; /* Thêm hiệu ứng */
+}
+
+.location select:hover {
+    transform: scale(1.05); /* Phóng to khi hover vào select */
+}
+
+/* Đảm bảo phần tử li có một vùng ảnh hưởng khi hover */
+.menu li {
+    display: inline-block;
+    transition: transform 0.3s ease; /* Thêm hiệu ứng cho li */
+}
+
+/* Thay đổi kích thước của toàn bộ menu khi hover */
+.menu li:hover {
+    transform: scale(1.2); /* Phóng to cả li */
+}

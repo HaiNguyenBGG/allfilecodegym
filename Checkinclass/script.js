@@ -109,16 +109,17 @@
 //     }
 // }
 
-const matrix = new Array(3);
-let count = 1;
-let sum = 0;
-for (let i = 0; i < matrix.length; i++) {
-    matrix[i] = new Array(3);
-    for (let j = 0; j < matrix.length; j++) {
-        matrix[i][j] = count;
-        count++;
-        sum +=matrix[i][j];
-    }
-    // console.log(matrix[i]);
-}
-console.log(sum);
+// const matrix = new Array(3);
+// let count = 1;
+// let sum = 0;
+// for (let i = 0; i < matrix.length; i++) {
+//     matrix[i] = new Array(3);
+//     for (let j = 0; j < matrix.length; j++) {
+//         matrix[i][j] = count;
+//         count++;
+//         sum +=matrix[i][j];
+//     }
+//     // console.log(matrix[i]);
+// }
+// console.log(sum);
+

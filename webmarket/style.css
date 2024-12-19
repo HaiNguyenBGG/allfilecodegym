@@ -1,183 +1,139 @@
 /* Tổng quát */
-body,
-html {
+body, html {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
     font-family: Arial, sans-serif;
 }
 
 /* Header */
-header {
-    width: auto;
-    height: auto;
-    /* position: fixed; */
-    background-color: #ffffff;
-    color: #000;
+header .navbar {
+    width: 100%;
     display: flex;
-    flex-direction: column;
-    z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    top: 0;
-    left: 0;
-}
-
-/* Navbar chính */
-.navbar {
-    width: auto;
-    height: auto;
-    display: flex;
+    justify-content: space-between;
     align-items: center;
-    justify-content: center;
     padding: 10px 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Logo chính */
-.logo {
+header .logo {
     display: flex;
     align-items: center;
     font-weight: bold;
-    font-size: 45px;
+    font-size: 50px;
 }
 
-/* Ảnh logo */
-.logo img {
-    width: 50%;
+header .logo img {
+    width: 70px;
     height: auto;
     margin-right: 10px;
 }
 
-
-.search-bar input {
-    width: 350px;
-    padding: 20px;
-    border-radius: 30px;
-    border: #000;
-    margin-left: 0px;
-}
-
-.search-bar {
+header .search-bar {
     display: flex;
-    justify-content: center;
     align-items: center;
-    width: 100%;
 }
 
-.search-bar img {
-    width: 100px;
-    height: 100px;
-    margin-left: 200px;
+header .search-bar input {
+    width: 350px;
+    padding: 10px;
+    border-radius: 30px;
+    border: 1px solid #000;
 }
 
-.search-icon:hover {
-    opacity: 0.7;
-    cursor: pointer;
+header .search-bar img {
+    width: 50px; /* Giảm kích thước icon tìm kiếm */
+    height: auto;
+    margin-left: 10px;
 }
 
-/* CSS cho search icon */
-#search-icon {
-    cursor: pointer;
-    transition: transform 0.3s ease, color 0.3s ease; /* Thêm hiệu ứng chuyển động */
-}
-
-/* Hiệu ứng hover cho search icon */
+/* Giảm kích thước icon tìm kiếm khi hover */
 #search-icon:hover {
-    transform: scale(1.1); /* Tăng kích thước logo khi hover */
-    color: #ff6600; /* Thay đổi màu sắc khi hover */
+    transform: scale(1.1); /* Tăng kích thước một chút khi hover */
+    color: #ff6600;
 }
+/* Thùng giỏ hàng và đếm số lượng */
 .options {
     display: flex;
-    justify-content: flex-end;
+    justify-content: flex-end; /* Đẩy giỏ hàng về phía bên phải */
     align-items: center;
-    margin-right: 20px;
+    margin-right: 20px; /* Khoảng cách bên phải */
 }
 
-.options span {
-    margin-left: 15px;
-    font-size: 18px;
+/* Giỏ hàng */
+.options img {
+    width: 40px; /* Kích thước nhỏ cho icon giỏ hàng */
+    height: auto;
+    margin-right: 10px; /* Khoảng cách giữa biểu tượng giỏ hàng và số lượng */
+    cursor: pointer;
 }
 
+/* Số lượng giỏ hàng */
 #cart-count-container {
     position: relative;
 }
 
 .cart-count {
     position: absolute;
-    top: -15px;
-    right: 65px;
-    background-color: red;
+    top: -15px;  /* Điều chỉnh vị trí số lượng giỏ hàng */
+    left: 15px;  /* Đặt số lượng giỏ hàng ở góc trên bên phải */
+    background-color: #ff6600; /* Màu nền cam nổi bật */
     color: white;
-    border-radius: 50%;
-    padding: 5px 10px;
+    border-radius: 50%;  /* Hình tròn cho số lượng */
+    padding: 5px 10px;  /* Khoảng cách trong */
     font-size: 14px;
-}
-
-/* Khi hover lên biểu tượng giỏ hàng */
-.options img:hover {
-    cursor: pointer;
-    opacity: 0.8;
-}
-
-/* .options {
+    font-weight: bold;
     display: flex;
+    align-items: center;
     justify-content: center;
-    align-items: center;
-    width: 100%;
+    min-width: 20px;  /* Đảm bảo số lượng có kích thước tối thiểu */
+    min-height: 20px;  /* Đảm bảo số lượng có kích thước tối thiểu */
 }
 
-.options span {
+/* Hiệu ứng hover cho giỏ hàng */
+.options img:hover {
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+/* Khi giỏ hàng trống, ẩn số lượng */
+.cart-count.empty {
+    visibility: hidden;
+}
+
+header .options {
     display: flex;
     align-items: center;
-    margin: 0 5px;
-    /* Khoảng cách giữa các mục */
-/* } */
-
-.options img {
-    width: 80px;
-    height: auto;
-    margin-right: 10px;
 }
 
-.options a {
+header .options img {
+    width: 30px;
+    height: auto;
+    margin-right: 15px;
+}
+
+header .options a {
+    font-size: 18px;
     color: #000;
     text-decoration: none;
-    font-size: 20px;
 }
 
-.location {
-    margin-right: 70px;
-    color: #000000;
-    text-decoration: none;
-    font-size: 20px;
-    padding: 15px;
-}
-
-.location select {
-    font-size: 20px;
-    padding: 10px;
-    width: 200px;
-}
-
-.location option {
-    font-size: 20px;
-}
-
-.options a:hover {
+header .options a:hover {
     text-decoration: underline;
 }
 
-/* Thanh menu điều hướng */
+/* Menu */
 .menu {
     background-color: #fd74df;
     border-top: 1px solid #e0e0e0;
 }
 
 .menu ul {
-    list-style-type: none;
+    list-style: none;
     display: flex;
+    justify-content: center;
     padding: 0;
     margin: 0;
-    justify-content: space-around;
 }
 
 .menu li {
@@ -186,7 +142,7 @@ header {
 
 .menu a {
     text-decoration: none;
-    color: #ffffff;
+    color: #fff;
     font-weight: 600;
     font-size: 24px;
 }
@@ -196,27 +152,11 @@ header {
     text-decoration: underline;
 }
 
-/* Navigation */
-
-nav ul {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-}
-
-nav ul li {
-    color: #fff;
-    padding: 10px 20px;
-    cursor: pointer;
-}
-
 /* Main Layout */
 main {
     display: flex;
-    /* Đặt layout ngang */
     margin: 20px;
     gap: 20px;
-    /* Khoảng cách giữa left-panel và right-panel */
 }
 
 /* Danh mục sản phẩm */
@@ -422,4 +362,14 @@ main {
     height: auto;   /* Giữ tỷ lệ ảnh */
     display: block; /* Đảm bảo ảnh hiển thị dưới dạng block */
     margin-bottom: 10px; /* Khoảng cách dưới ảnh */
+}
+
+/* Sử dụng ảnh tùy chỉnh cho con trỏ chuột khi hover vào logo */
+.logo {
+    cursor: url('cursor.png'), pointer; /* Chèn ảnh vào làm con trỏ */
+}
+
+/* Sử dụng con trỏ chuột dạng tay cho các link */
+a:hover {
+    cursor: url('custom-hand-cursor.png'), pointer; /* Chèn ảnh tay */
 }
