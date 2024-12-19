@@ -1,0 +1,85 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; /* Chia thành 3 cột: 1 cột nhỏ, 1 cột trung tâm lớn, 1 cột nhỏ */
+    grid-gap: 20px; /* Khoảng cách giữa các cột */
+    padding: 20px;
+    width: 100%; /* Chiếm toàn bộ chiều rộng màn hình */
+}
+
+.left-column, .center-column, .right-column {
+    display: flex; /* Sử dụng flex cho mỗi cột để quản lý layout dễ dàng hơn */
+    flex-direction: column;
+    max-width: 32%;
+}
+
+.left-column{
+    text-align: center; /* Căn giữa nội dung */
+}
+
+.center-column {
+    text-align: center; /* Căn giữa nội dung */
+    margin-left: 33%;
+    margin-top: -39.4%;
+}
+
+.right-column {
+    text-align: center; /* Căn phải nội dung */
+    margin-left: 66%;
+    margin-top: -40.6%;
+    
+}
+
+.box {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    margin-bottom: 20px;
+}
+
+button {
+    padding: 10px 15px;
+    margin: 10px 0;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+    height: auto;
+    width: 50%;
+}
+
+button:hover {
+    background-color: #2f00ff;
+}
+
+.result {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+}
+
+/* Điều chỉnh giao diện cho màn hình nhỏ hơn */
+@media (max-width: 768px) {
+    .container {
+        grid-template-columns: 1fr; /* Chuyển thành 1 cột cho màn hình nhỏ */
+        align-items: center;
+    }
+
+    .left-column, .center-column, .right-column {
+        height: auto;
+        width: 100%; /* Các cột chiếm toàn bộ chiều rộng trên màn hình nhỏ */
+        margin-bottom: 20px; /* Khoảng cách giữa các cột */
+        text-align: center;
+    }
+}

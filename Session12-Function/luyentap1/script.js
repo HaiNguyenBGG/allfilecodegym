@@ -1,7 +1,7 @@
 // Bài 1: Hàm alertMessage()
 function alertMessage() {
     const message = "Bấm bên dưới đi \u2193";
-    document.getElementById("result1").innerHTML = message;  // Hiển thị kết quả dưới nút
+    document.getElementById("result1").innerHTML = message;
 }
 
 // Bài 2: Hàm tăng giá trị lên 1
