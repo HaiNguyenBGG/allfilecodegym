@@ -1,0 +1,15 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+  }
+  
+  #myCanvas {
+    border: 1px solid #000; /* Giao diện đường viền cho canvas */
+    margin: 20px auto; /* Trung tâm canvas trên trang */
+    background-color: #f0f0f0; /* Màu nền nhẹ nhàng cho canvas */
+  }
+  
+  h1 {
+    margin-bottom: 20px;
+    font-size: 24px;
+  }
