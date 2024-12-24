@@ -1,25 +1,26 @@
 // Lấy container danh mục xe
 const categoryListContainer = document.getElementById('car-category-list');
 
-// Hàm hiển thị danh mục xe
+// Hàm hiển thị danh mục xe (chỉ hiển thị model)
 function displayCarCategories(carData) {
-    carData.forEach(car => {
+    // Xóa nội dung cũ trong container danh mục xe
+    categoryListContainer.innerHTML = '';
+
+    // Duyệt qua dữ liệu xe và tạo danh sách model
+    carData.forEach((car, index) => {
         const listItem = document.createElement('li');
         listItem.className = 'list-group-item';
-        listItem.textContent = car.model; // Hiển thị tên dòng xe
+        listItem.textContent = car.name || `Dòng xe ${index + 1}`; // Hiển thị tên dòng xe (model)
 
-        // Gắn sự kiện click để filter các phiên bản theo dòng xe
-        listItem.addEventListener('click', () => {
-            // Xóa nội dung cũ trong container phiên bản
-            document.getElementById('car-models').innerHTML = '';
-
-            // Hiển thị phiên bản của dòng xe được chọn
-            displayCarModels([car]);
-        });
-
+        // Thêm dòng xe vào danh mục
         categoryListContainer.appendChild(listItem);
     });
 }
 
+// Lấy dữ liệu từ localStorage
+const carDataFromStorage = JSON.parse(localStorage.getItem('products')) || [];
+
 // Gọi hàm hiển thị danh mục xe
-displayCarCategories(carData);
+document.addEventListener('DOMContentLoaded', () => {
+    displayCarCategories(carDataFromStorage);
+});

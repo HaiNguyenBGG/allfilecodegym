@@ -15,6 +15,22 @@ function displayProducts(carData) {
 
         carModelsContainer.appendChild(title);
 
+        // Hiển thị thông tin bổ sung
+        const infoContainer = document.createElement('div');
+        infoContainer.className = 'mb-3';
+
+        // Màu sắc
+        const colors = document.createElement('p');
+        colors.innerHTML = `<strong>Màu sắc:</strong> ${car.colorOptions.join(', ')}`;
+        infoContainer.appendChild(colors);
+
+        // Các tính năng
+        const features = document.createElement('p');
+        features.innerHTML = `<strong>Tính năng:</strong> ${car.features.join(', ')}`;
+        infoContainer.appendChild(features);
+
+        carModelsContainer.appendChild(infoContainer);
+
         // Tạo lưới các phiên bản của dòng xe
         const variantsRow = document.createElement('div');
         variantsRow.className = 'row g-3'; // Sử dụng bootstrap để căn chỉnh khoảng cách giữa các card
@@ -87,48 +103,4 @@ function displayProducts(carData) {
 
         carModelsContainer.appendChild(variantsRow);
     });
-}
-
-// Kiểm tra nếu localStorage không có dữ liệu, thêm dữ liệu mặc định
-if (!localStorage.getItem('products')) {
-    const defaultData = [
-        {
-            make: 'Kia',
-            model: 'Morning',
-            type: 'Hatchback',
-            year: 2024,
-            variants: [
-                {
-                    name: 'AT 1.25 GT-Line',
-                    engine: '1.25L',
-                    transmission: 'Automatic',
-                    price: '400000000',
-                    image: 'assets/images/kiaMorning/morningGTLine.jpg',
-                },
-                {
-                    name: 'AT 1.25 X-Line',
-                    engine: '1.25L',
-                    transmission: 'Automatic',
-                    price: '450000000',
-                    image: 'assets/images/kiaMorning/morningXLine.jpg',
-                },
-            ],
-        },
-        {
-            make: 'Kia',
-            model: 'Sonet',
-            type: 'SUV',
-            year: 2024,
-            variants: [
-                {
-                    name: 'AT 1.5 Deluxe',
-                    engine: '1.5L',
-                    transmission: 'Automatic',
-                    price: '600000000',
-                    image: 'assets/images/kiaSonet/sonetDeluxe.jpg',
-                },
-            ],
-        },
-    ];
-    localStorage.setItem('products', JSON.stringify(defaultData));
 }

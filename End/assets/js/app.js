@@ -12,3 +12,9 @@ document.addEventListener('DOMContentLoaded', () => {
         carCategoryList.appendChild(listItem);
     });
 });
+
+if (!window.productsLoaded) {
+    window.productsLoaded = true; // Đánh dấu đã load
+    const carData = JSON.parse(localStorage.getItem('products') || '[]');
+    displayProducts(carData);
+}

@@ -93,7 +93,7 @@ input {
 #closeButton {
     margin-top: 20px;
     padding: 10px 20px;
-    background-color: #007bff;
+    background-color: #ff0000;
     color: white;
     border: none;
     cursor: pointer;
@@ -108,7 +108,7 @@ input {
 }
 
 #paymentButton:hover {
-    background-color: #0056b3;
+    background-color: #eaff00;
 }
 
 .qr-image {

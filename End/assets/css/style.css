@@ -207,14 +207,17 @@ canvas {
 }
 
 .footer {
-    background-color: #1a1a1a; /* Nền tối */
-    color: white; /* Chữ trắng */
+    background-color: #1a1a1a;
+    /* Nền tối */
+    color: white;
+    /* Chữ trắng */
     padding: 20px 0;
     font-size: 14px;
 }
 
 .footer a {
-    color: #ffcc00; /* Màu vàng nhạt cho liên kết */
+    color: #ffcc00;
+    /* Màu vàng nhạt cho liên kết */
     text-decoration: none;
 }
 
@@ -249,3 +252,13 @@ canvas {
     font-size: 12px;
 }
 
+.audio-player {
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+audio {
+    width: 100%;
+    outline: none;
+}
