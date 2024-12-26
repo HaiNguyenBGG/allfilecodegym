@@ -1,0 +1,51 @@
+h1 {
+    margin: auto;
+    text-align: center;
+}
+
+.button-container {
+    text-align: center;
+    margin: 20px 0;
+}
+
+button {
+    display: flex;
+    margin: 10px;
+    padding: 10px 15px;
+    border: 1px solid #007BFF;
+    background-color: #007BFF;
+    color: #fff;
+    border-radius: 5px;
+    font-size: 15px;
+    align-items: center;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+#addStudent:hover {
+    background-color: #2fff00;
+    transform: scale(1.1);
+}
+#editStudent:hover{
+    background-color: gold;
+    transform: scale(1.1);
+}
+#delStudent:hover{
+    background-color: red;
+    transform: scale(1.1);
+}
+
+th,
+td {
+    border: 2px solid #000000;
+}
+
+table {
+    width: 80%;
+    border-collapse: collapse;
+    margin: 20px auto;
+    font-size: 20px;
+}
+
+th {
+    background-color: #9fa4a9;
+}

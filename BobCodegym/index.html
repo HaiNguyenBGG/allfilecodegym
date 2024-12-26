@@ -2,24 +2,32 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="bai12.css">
 </head>
 
 <body>
-    <script>
-        var x = 2;
-        var y = [1, 2, 3, 4, 5];
-        var z = [6, 7, 8, 9, 10, 11];
+  <!-- <script src="bai1.js"></script> -->
+  <!-- <script src="bai2.js"></script> -->
+  <!-- <script src="bai3.js"></script> -->
+  <!-- <script src="bai4.js"></script> -->
+  <!-- <script src="bai5.js"></script> -->
+  <!-- <script src="bai6.js"></script> -->
+  <!-- <script src="bai7.js"></script> -->
+  <!-- <script src="bai8.js"></script> -->
+  <!-- <script src="bai9.js"></script> -->
+  <!-- <script src="bai10.js"></script> -->
 
-        if (y[x] + z[x - 1] == z[x + 2]) {
-            console.log('Codegym');
-        }
-        else {
-            console.log('Agilead');
-        }
-    </script>
+  <h1>Quản lý sinh viên</h1>
+  <button id="addStudent" onclick="addStudent()">Thêm sinh viên</button>
+  <button id="editStudent" onclick="editStudent()">Sửa sinh viên</button>
+  <button id="delStudent" onclick="deleteStudent()">Xóa sinh viên</button>
+  <table id="viewStudent">
+    <!-- Danh sách sinh viên sẽ hiển thị -->
+  </table>
+  <script src="bai12.js"></script>
 </body>
 
 </html>
